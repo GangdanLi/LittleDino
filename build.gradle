@@ -1,0 +1,37 @@
+plugins {
+    // Apply the application plugin to add support for building a CLI application in Java.
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'java'
+}
+
+group 'Dino'
+version '1.0-SNAPSHOT'
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+javafx {
+    version = "17.0.2"
+    modules = ['javafx.controls','javafx.media']
+}
+
+dependencies {
+    // Use JUnit Jupiter for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+    // This dependency is used by the application.
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'Dino.App'
+}
+jar {
+    manifest {
+        attributes 'Main-Class': "Dino.App"
+    }
+}
